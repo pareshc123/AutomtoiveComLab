@@ -44,9 +44,8 @@ class ServerSocket:
         logger.info("Client connected from %s:%s", client_address[0], client_address[1])
 
         # Wait for up to 1024 bytes from the client
-        data = self.connection_socket.recv(1024)
-
         received_data = self.connection_socket.recv(1024)
+        logger.info(f"Raw data received: {received_data}")
         message = decode_message(received_data)
 
         logger.info("Message received: %s", message)
